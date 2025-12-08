@@ -1,0 +1,16 @@
+[
+    {
+        "reg": "1001",
+        "name": "rupali",
+        "dept": "CSE",
+        "year": "3",
+        "mobile": "0987654321"
+    },
+    {
+        "reg": "1002",
+        "name": "User",
+        "dept": "MECH",
+        "year": "3",
+        "mobile": "1234567890"
+    }
+]
