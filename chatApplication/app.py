@@ -9,6 +9,7 @@ PRIMARY = "#4a6cf7"
 TEXT_COLOR = "#333333"
 
 # reads all users from file and returns them as a dictionary
+
 def load_users():
     users = {}
     if not os.path.exists(USERS_FILE):
@@ -21,22 +22,26 @@ def load_users():
     return users
 
 # stores a new users details in file
+
 def save_user(username, phone, password):
     with open(USERS_FILE, "a") as f:
         f.write(f"{username}|{phone}|{password}\n")
 
 # creates and returns unique chat file for 2 users
+
 def get_chat_file(user1, user2):
     u1, u2 = sorted([user1, user2])
     os.makedirs(CHAT_DIR, exist_ok=True)
     return os.path.join(CHAT_DIR, f"{u1}_{u2}.txt")
 
 # appends sender messages to correct chat file
+
 def save_message(sender, receiver, message):
     with open(get_chat_file(sender, receiver), "a") as f:
         f.write(f"{sender}: {message}\n")
 
 # reads and returns all messages betn 2 users
+
 def load_messages(user1, user2):
     path = get_chat_file(user1, user2)
     if not os.path.exists(path):
@@ -98,6 +103,7 @@ class ChatApp:
         return entry
     
     # validates signup detailed and save new user
+
     def create_account(self):
         username = self.su_username.get().strip()
         phone = self.su_phone.get().strip()
@@ -192,6 +198,7 @@ class ChatApp:
         self.auto_refresh_users()
 
     # load all users name
+
     def load_user_list(self):
         self.users_listbox.delete(0, tk.END)
         for user in load_users():
@@ -236,6 +243,12 @@ class ChatApp:
         self.root.after(500, self.auto_refresh_chat)  # 0.5 sec
 
 # ---------------------------------------------
+    def auto_refresh_chat(self):
+        if self.current_chat_user:
+            self.refresh_chat()
+        self.root.after(100, self.auto_refresh_chat)  
+
+
 def launch_new_window():
     new_win = tk.Toplevel(root)
     ChatApp(new_win)
@@ -257,3 +270,5 @@ if __name__ == "__main__":
 
     launch_new_window()
     root.mainloop()
+    root.mainloop()
+
