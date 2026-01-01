@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
 import pymysql
-import login_form.db as db
-import login_form.LoginForm as LoginForm
+import db as db
+import LoginForm as LoginForm
 
 
 def main():
