@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
-import login_form.db as db
-import login_form.registration_form as registration_form   
+import db as db
+import registration_form as registration_form   
 
 
 def main():
