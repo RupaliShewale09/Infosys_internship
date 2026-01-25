@@ -17,6 +17,8 @@ def get_connection():
         cursorclass=pymysql.cursors.DictCursor
     )
 
+print("Connection Successful!!")
+
 admin_username = "library"
 admin_password = "1234"
 
