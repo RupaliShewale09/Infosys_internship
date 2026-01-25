@@ -1,5 +1,8 @@
 import os
+from dotenv import load_dotenv
 import mysql.connector
+
+load_dotenv()   # loads .env automatically
 
 def get_connection():
     return mysql.connector.connect(
